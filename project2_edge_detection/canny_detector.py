@@ -21,12 +21,16 @@ class canny_detector():
             highthreshold---------- |        ---------                                }  
                                     |                  -----------                    }  => weak pixels, these pixels will be reconsidered by edge_hysteresis    
             lowthreshold----------- |                             ---------           }  
-                                    |                                      ------------ => eliminate     
+                                    |                                      ------------ => eliminate  
 
+        strides is the how much you want to slide your kernel through the image. This function only work with strides = 1 at the moment
+        padding is how you want to output to be. If padding = 'same', then the output image will be the same size as the input. 
         double_thresh is set to True when we want to use canny detector, if it set to False we will threshold the image by only one threshold
         threshold_ is the value of threshold we want to set when we don't use double threshold
         verbose = True when we want to show the intermediate image as well as the final result
-
+        title is the title of the graph
+        highthresholdratio is proportional to the maximum pixel in the image. it uses to compute the highthreshold
+        lowthresholdratio is proportional the highthreshold. it uses to compute lowthreshold 
         how to use:
         firstly we have to import this class to the command prompt or if you use notebook can also do by: from canny_detector import canny_detector
         then initialize this class: canny = canny_detector() we also need to set the parameter when calling this class
